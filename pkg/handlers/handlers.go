@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/krshnas/bookings/pkg/config"
@@ -43,7 +42,7 @@ func (h *Repository) About(w http.ResponseWriter, r *http.Request) {
 	stringMap["test"] = "Hello, again."
 
 	remoteIp := h.App.Session.Get(r.Context(), "remote_ip")
-	fmt.Println(remoteIp)
+
 	if remoteIpStr, ok := remoteIp.(string); ok {
 		stringMap["remote_ip"] = remoteIpStr
 	} else {
